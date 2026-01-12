@@ -3,106 +3,677 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="index.css" />
+    <title>Nathiya | Full Stack Developer Portfolio</title>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #00d2ff;
+        --secondary: #92fe9d;
+        --accent: #ff0072;
+        --dark-bg: #0b0f1a;
+        --glass: rgba(255, 255, 255, 0.05);
+        --text: #e2e8f0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Background Gradient Glows */
+      .bg-circles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: radial-gradient(
+            circle at 10% 20%,
+            rgba(0, 210, 255, 0.1) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(146, 254, 157, 0.1) 0%,
+            transparent 40%
+          );
+      }
+
+      /* Navigation */
+      .main-nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10%;
+        background: rgba(11, 15, 26, 0.85);
+        backdrop-filter: blur(15px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .nav-logo {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 400;
+        font-size: 0.9rem;
+        transition: 0.3s;
+        opacity: 0.8;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+        opacity: 1;
+      }
+
+      /* Hero Section */
+      header {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(
+            rgba(11, 15, 26, 0.85),
+            rgba(11, 15, 26, 0.85)
+          ),
+          url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80");
+        background-size: cover;
+        background-position: center;
+        padding: 0 10%;
+      }
+
+      header h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        margin-bottom: 10px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Common Section Styles */
+      section {
+        padding: 100px 10%;
+        max-width: 1300px;
+        margin: auto;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      h2::after {
+        content: "";
+        width: 50px;
+        height: 4px;
+        background: var(--primary);
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
+
+      /* About Section */
+      .about-container {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 320px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+        color: rgba(226, 232, 240, 0.9);
+      }
+
+      .profile-card {
+        flex: 0 0 300px;
+        margin: auto;
+      }
+
+      .profile-img {
+        width: 100%;
+        max-width: 280px;
+        border-radius: 30px;
+        border: 2px solid rgba(0, 210, 255, 0.5);
+        padding: 10px;
+        background: var(--glass);
+        transition: 0.4s;
+      }
+
+      .profile-img:hover {
+        transform: scale(1.02);
+        border-color: var(--primary);
+      }
+
+      /* Skill Cards */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .glass-card {
+        background: var(--glass);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 35px;
+        border-radius: 24px;
+        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .glass-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .skill-item {
+        margin-bottom: 25px;
+      }
+      .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+      }
+      .bar-bg {
+        width: 100%;
+        height: 8px;
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        border-radius: 10px;
+      }
+
+      /* Project & Work Grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .img-box {
+        width: 100%;
+        height: 200px;
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 0.6s;
+      }
+      .glass-card:hover .img-box img {
+        transform: scale(1.1);
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+      }
+      .btn {
+        flex: 1;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        transition: 0.3s;
+      }
+      .btn-p {
+        background: var(--primary);
+        color: #000;
+      }
+      .btn-s {
+        border: 1px solid var(--primary);
+        color: var(--primary);
+      }
+      .btn:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background: #050810;
+        padding: 80px 10% 40px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin: 30px 0;
+      }
+      .social-links a {
+        color: var(--text);
+        font-size: 1.8rem;
+        transition: 0.3s;
+        opacity: 0.7;
+      }
+      .social-links a:hover {
+        color: var(--primary);
+        transform: translateY(-5px);
+        opacity: 1;
+      }
+
+      /* Utilities */
+      .reveal {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        section {
+          padding: 60px 8%;
+        }
+        .about-container {
+          text-align: center;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- nav bar -->
-    <nav>
-      <h2>Nathiya Sundharam</h2>
-      <ul>
-        <li><a href="#home">Home</a></li>
+    <div class="bg-circles"></div>
+
+    <nav class="main-nav">
+      <a href="#" class="nav-logo">NATHIYA SUNDHARAM</a>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <!-- home  -->
-    <section id="home">
-      <div class="home-box">
-        <div>
-          <h1>Hi, I'm Nathiya Sundharam</h1>
+
+    <header>
+      <div class="reveal">
+        <h1>Hi, I'm Nathiya</h1>
+        <p style="font-size: 1.3rem; opacity: 0.9; margin-top: 10px">
+          Full Stack Developer
+        </p>
+        <p style="color: var(--secondary); margin-top: 10px">
+          <i class="fas fa-map-marker-alt"></i> Sithalapakkam, Chennai
+        </p>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-container reveal">
+        <div class="profile-card">
+          <img src="/image/nathiya.png.png" alt="Nathiya" class="profile-img" />
+        </div>
+        <div class="about-text">
           <p>
-            Freshworks Academy student and passionate Full Stack
-            Developer(Fresher). Interested in building clean and user-friendly
-            web application
+            Hi, I am Nathiya from Chennai. I am a Full Stack Developer who loves
+            building websites. I completed my Diploma in Computer Technology at
+            Central Polytechnic College with 80% marks. I really like Python,
+            and I was the Top Scorer in that subject.
+          </p>
+          <p>
+            I completed my schooling at Government High School, Sithalapakkam.
+            Apart from coding, I am very interested in creative arts like Aari
+            Work and Pencil Drawing. I enjoy learning new things and always try
+            to do my best in both technology and art.
           </p>
 
-          <a href="#" class="resume-btn" download="Nathiya sundharam resume">
-            <i class="fa-solid fa-download"></i> Download Resume
-          </a>
-        </div>
-        <div class="profile">
-          <img src="./image/nathiya.png.png" alt="Nathiya" />
+          <div
+            class="glass-card"
+            style="
+              padding: 25px;
+              border-left: 4px solid var(--primary);
+              margin-top: 20px;
+            "
+          >
+            <p
+              style="
+                color: var(--primary);
+                font-weight: 700;
+                margin-bottom: 15px;
+                letter-spacing: 1px;
+              "
+            >
+              <i class="fas fa-user-graduate"></i> EDUCATION SUMMARY
+            </p>
+            <ul style="list-style: none; font-size: 0.95rem">
+              <li
+                style="margin-bottom: 12px; display: flex; align-items: center"
+              >
+                <i
+                  class="fas fa-university"
+                  style="color: var(--secondary); margin-right: 15px"
+                ></i>
+                Central Polytechnic College (80%) - Distinction
+              </li>
+              <li style="display: flex; align-items: center">
+                <i
+                  class="fas fa-school"
+                  style="color: var(--secondary); margin-right: 15px"
+                ></i>
+                Govt High School, Sithalapakkam (57%)
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about">
-      <h1>About Me</h1>
-      <p>
-        I am currently a Trainee at Freshworks Academy. I have completed a
-        Diploma in Computer Engineering from Central Polytechnic College.
-      </p>
-    </section>
     <section id="skills">
-      <h1>Skills</h1>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="glass-card reveal">
+          <h3 style="margin-bottom: 25px; color: var(--primary)">
+            Development
+          </h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>HTML & CSS</span><span>90%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 90%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Python (FastAPI)</span><span>67%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 67%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>PostgreSQL</span><span>75%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
 
-      <div class="Skills">
-        <div class="skill-box">HTML</div>
-        <div class="skill-box">CSS</div>
-        <!-- <div class="skill-box">JavaScript</div> -->
-        <div class="skill-box">Python</div>
-        <div class="skill-box">SQL</div>
-        <div class="skill-box">Figma</div>
-        <div class="skill-box">GitHub</div>
+        <div class="glass-card reveal">
+          <h3 style="margin-bottom: 25px; color: var(--primary)">
+            Design & Tools
+          </h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Figma UI Design</span><span>80%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span>GitHub</span><span>85%</span></div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 85%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card reveal">
+          <h3 style="margin-bottom: 25px; color: var(--primary)">
+            Personal Skills
+          </h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Communication</span><span>60%</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 60%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info"><span>Team Work</span><span>55%</span></div>
+            <div class="bar-bg">
+              <div class="bar-fill" style="width: 55%"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="projects">
-      <h1>Projects</h1>
-      <div class="projects">
-        <div class="project-card">
-          <h3>Static website Name : Accsessories</h3>
-          <p>Accsessories for men women and kids</p>
-          <a href="https://nathiyas007.github.io/Accessoriess/"
-            >Explore my website</a
-          >
+      <h2>Projects & Internship</h2>
+      <div class="grid">
+        <div class="glass-card reveal">
+          <div class="img-box">
+            <img src="image/staticwebstite.png" alt="Accessories Site" />
+          </div>
+          <h3>Accessories Web Site</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+            Static website for fashion accessories using HTML and CSS.
+          </p>
+          <div class="btn-group">
+            <a
+              href="https://nathiyas007.github.io/Accessoriess/"
+              class="btn btn-p"
+              target="_blank"
+              >View Demo</a
+            >
+            <a
+              href="https://github.com/nathiyas007/Accessoriess"
+              class="btn btn-s"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
         </div>
 
-        <div class="project-card">
-          <h3>Full stack website Name : Marketplace</h3>
-          <p>
-            Buy and sell product by user who no need long time and also who want
-            cheep price
+        <div class="glass-card reveal">
+          <div class="img-box">
+            <img
+              src="image/Screenshot 2026-01-11 125139.png"
+              alt="Marketplace"
+            />
+          </div>
+          <h3>Marketplace (Full Stack)</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+            Second-hand buy/sell web app using FastAPI & PostgreSQL.
+          </p>
+          <div class="btn-group">
+            <a href="#" class="btn btn-p">View Demo</a>
+            <a href="#" class="btn btn-s">GitHub</a>
+          </div>
+        </div>
+
+        <div class="glass-card reveal">
+          <div class="img-box">
+            <img
+              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80"
+              alt="BSNL"
+            />
+          </div>
+          <h3>BSNL – Internship</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+            During my college studies, I completed a 1-month internship at BSNL,
+            Meenambakkam. During this internship, I learned the basics of
+            computer networking, how the internet works, and how to use Cisco
+            Packet Tracer for network simulation. This internship was
+            stipend-based and helped me gain practical technical knowledge.
+          </p>
+          <a href="#" class="btn btn-p" style="display: block; margin-top: 20px"
+            >View Certificate</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="lifeskills">
+      <h2>Life Skills</h2>
+      <div class="grid">
+        <div class="glass-card reveal" style="max-width: 500px; margin: auto">
+          <div class="img-box">
+            <img src="/image/prd-building-challenge.jpg" alt="Mini AC" />
+          </div>
+          <h3>Product building Chellenge : SEVEN STAR AC</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+            In the FSSA Academy product building challenge, we made a mini AC.
+            We used cardboard, aluminium foil, and a fan motor. While building
+            this product, we faced many problems. But finally, we reached the
+            last stage and had a chance to win. However, because of points
+            difference, we did not win. Even though we did not win, this
+            challenge was a new experience for us. We learned many things while
+            building the product.
           </p>
         </div>
       </div>
+    </section>
 
-      <section id="contact">
-        <h1>Contact Me</h1>
-        <div class="contact-icons">
-          <a href="mailto:nathiyas972@gamil.com"
-            ><i class="fa-solid fa-envelope"></i
+    <section id="hobbies">
+      <h2>Hobbies & Interests</h2>
+      <div class="grid">
+        <div class="glass-card reveal">
+          <div class="img-box">
+            <img src="/image/pencil-art.jpg" alt="Pencil Drawing" />
+          </div>
+          <h3>Pencil Drawing</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+            Expressing creativity through detailed pencil sketches and
+            portraits.
+          </p>
+        </div>
+
+        <div class="glass-card reveal">
+          <div class="img-box">
+            <img src="/image/aari-work.webp" alt="Aari Work" />
+          </div>
+          <h3>Aari Work</h3>
+          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+            Traditional embroidery work showcasing patience and attention to
+            detail.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="reveal">
+        <h2>Contact Me</h2>
+        <div style="margin-bottom: 25px; line-height: 2">
+          <p>
+            <i
+              class="fas fa-phone"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            +91 7010042985
+          </p>
+          <p>
+            <i
+              class="fas fa-envelope"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            nathiyas972@gmail.com
+          </p>
+          <p>
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--primary); margin-right: 10px"
+            ></i>
+            Sithalapakkam, Chennai - 600126
+          </p>
+        </div>
+        <div class="social-links">
+          <a href="https://github.com/nathiyas007" target="_blank"
+            ><i class="fab fa-github"></i
           ></a>
           <a
-            href="https://www.linkedin.com/posts/nathiya-s-0b89a6389_i-recently-learned-html-and-css-and-used-activity-7390786400406667264-pWXK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAF-4jwwB_Vewk5z0oWLx_aqsoktXpZBXSp8"
+            href="https://www.linkedin.com/in/nathiya-s-0b89a6389"
             target="_blank"
-            ><i class="fa-brands fa-linkedin"></i
+            ><i class="fab fa-linkedin"></i
           ></a>
-          <a href="https://github.com/nathiyas007" target="_blank"
-            ><i class="fa-brands fa-github"></i
+          <a href="mailto:nathiyas972@gmail.com"
+            ><i class="fas fa-envelope"></i
           ></a>
         </div>
-      </section>
-    </section>
-    <footer>
-      <p>© 2026 Nathiya sundharam</p>
+        <p
+          style="
+            opacity: 0.4;
+            font-size: 0.75rem;
+            margin-top: 40px;
+            letter-spacing: 1px;
+          "
+        >
+          NATHIYA &copy; 2026 | FULL STACK DEVELOPER
+        </p>
+      </div>
     </footer>
   </body>
 </html>
