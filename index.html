@@ -13,339 +13,7 @@
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        --primary: #00d2ff;
-        --secondary: #92fe9d;
-        --accent: #ff0072;
-        --dark-bg: #0b0f1a;
-        --glass: rgba(255, 255, 255, 0.05);
-        --text: #e2e8f0;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Poppins", sans-serif;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background-color: var(--dark-bg);
-        color: var(--text);
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-
-      /* Background Gradient Glows */
-      .bg-circles {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background: radial-gradient(
-            circle at 10% 20%,
-            rgba(0, 210, 255, 0.1) 0%,
-            transparent 40%
-          ),
-          radial-gradient(
-            circle at 90% 80%,
-            rgba(146, 254, 157, 0.1) 0%,
-            transparent 40%
-          );
-      }
-
-      /* Navigation */
-      .main-nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 10%;
-        background: rgba(11, 15, 26, 0.85);
-        backdrop-filter: blur(15px);
-        z-index: 1000;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .nav-logo {
-        font-size: 1.4rem;
-        font-weight: 700;
-        color: var(--primary);
-        text-decoration: none;
-        letter-spacing: 1px;
-      }
-
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 30px;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--text);
-        font-weight: 400;
-        font-size: 0.9rem;
-        transition: 0.3s;
-        opacity: 0.8;
-      }
-
-      .nav-links a:hover {
-        color: var(--primary);
-        opacity: 1;
-      }
-
-      /* Hero Section */
-      header {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: linear-gradient(
-            rgba(11, 15, 26, 0.85),
-            rgba(11, 15, 26, 0.85)
-          ),
-          url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80");
-        background-size: cover;
-        background-position: center;
-        padding: 0 10%;
-      }
-
-      header h1 {
-        font-size: clamp(2.5rem, 8vw, 4rem);
-        margin-bottom: 10px;
-        background: linear-gradient(to right, var(--primary), var(--secondary));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-
-      /* Common Section Styles */
-      section {
-        padding: 100px 10%;
-        max-width: 1300px;
-        margin: auto;
-      }
-
-      h2 {
-        font-size: 2.5rem;
-        text-align: center;
-        margin-bottom: 60px;
-        position: relative;
-      }
-
-      h2::after {
-        content: "";
-        width: 50px;
-        height: 4px;
-        background: var(--primary);
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 2px;
-      }
-
-      /* About Section */
-      .about-container {
-        display: flex;
-        align-items: center;
-        gap: 60px;
-        flex-wrap: wrap;
-      }
-
-      .about-text {
-        flex: 1;
-        min-width: 320px;
-      }
-
-      .about-text p {
-        margin-bottom: 20px;
-        font-size: 1.05rem;
-        color: rgba(226, 232, 240, 0.9);
-      }
-
-      .profile-card {
-        flex: 0 0 300px;
-        margin: auto;
-      }
-
-      .profile-img {
-        width: 100%;
-        max-width: 280px;
-        border-radius: 30px;
-        border: 2px solid rgba(0, 210, 255, 0.5);
-        padding: 10px;
-        background: var(--glass);
-        transition: 0.4s;
-      }
-
-      .profile-img:hover {
-        transform: scale(1.02);
-        border-color: var(--primary);
-      }
-
-      /* Skill Cards */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-
-      .glass-card {
-        background: var(--glass);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 35px;
-        border-radius: 24px;
-        transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-
-      .glass-card:hover {
-        transform: translateY(-10px);
-        border-color: var(--primary);
-        background: rgba(255, 255, 255, 0.08);
-      }
-
-      .skill-item {
-        margin-bottom: 25px;
-      }
-      .skill-info {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-size: 0.9rem;
-      }
-      .bar-bg {
-        width: 100%;
-        height: 8px;
-        background: rgba(30, 41, 59, 0.5);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-      .bar-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--primary), var(--secondary));
-        border-radius: 10px;
-      }
-
-      /* Project & Work Grid */
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
-      }
-
-      .img-box {
-        width: 100%;
-        height: 200px;
-        border-radius: 16px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      .img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: 0.6s;
-      }
-      .glass-card:hover .img-box img {
-        transform: scale(1.1);
-      }
-
-      .btn-group {
-        display: flex;
-        gap: 15px;
-        margin-top: 25px;
-      }
-      .btn {
-        flex: 1;
-        padding: 12px;
-        text-align: center;
-        text-decoration: none;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 0.85rem;
-        transition: 0.3s;
-      }
-      .btn-p {
-        background: var(--primary);
-        color: #000;
-      }
-      .btn-s {
-        border: 1px solid var(--primary);
-        color: var(--primary);
-      }
-      .btn:hover {
-        filter: brightness(1.1);
-        transform: translateY(-2px);
-      }
-
-      /* Footer */
-      footer {
-        background: #050810;
-        padding: 80px 10% 40px;
-        text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        margin: 30px 0;
-      }
-      .social-links a {
-        color: var(--text);
-        font-size: 1.8rem;
-        transition: 0.3s;
-        opacity: 0.7;
-      }
-      .social-links a:hover {
-        color: var(--primary);
-        transform: translateY(-5px);
-        opacity: 1;
-      }
-
-      /* Utilities */
-      .reveal {
-        animation: fadeInUp 0.8s ease forwards;
-      }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-        section {
-          padding: 60px 8%;
-        }
-        .about-container {
-          text-align: center;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div class="bg-circles"></div>
@@ -550,8 +218,8 @@
             Second-hand buy/sell web app using FastAPI & PostgreSQL.
           </p>
           <div class="btn-group">
-            <a href="#" class="btn btn-p">View Demo</a>
-            <a href="#" class="btn btn-s">GitHub</a>
+            <a href="https://full-stack-marketplace-eight.vercel.app/" class="btn btn-p">View Demo</a>
+            <a href="https://github.com/nathiyas007/full_stack_marketplace_1" class="btn btn-s">GitHub</a>
           </div>
         </div>
 
@@ -697,5 +365,23 @@
         </p>
       </div>
     </footer>
+    <script>
+      // Intersection Observer for reveal animations
+      const observerOptions = {
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".reveal").forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
