@@ -6,7 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap');
 
 :root {
-  /* Core Palette */
+  /* Core Palette (Dark Mode - Default) */
   --bg-color: #020617;
   --surface: #0f172a;
   --primary: #8b5cf6; /* Violet */
@@ -19,13 +19,29 @@
   
   /* Glassmorphism */
   --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-bg-hover: rgba(15, 23, 42, 0.8);
   --glass-border: rgba(148, 163, 184, 0.1);
   --glow: rgba(139, 92, 246, 0.15);
+  --nav-bg: rgba(2, 6, 23, 0.8);
+  --footer-bg: #010409;
   
   /* Utilities */
   --radius-lg: 24px;
   --radius-md: 16px;
   --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="light"] {
+  --bg-color: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #0f172a;
+  --text-dim: #475569;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-bg-hover: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glow: rgba(139, 92, 246, 0.2);
+  --nav-bg: rgba(248, 250, 252, 0.8);
+  --footer-bg: #f1f5f9;
 }
 
 /* Base Styles */
@@ -77,7 +93,8 @@ body {
   background: 
     radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
     radial-gradient(circle at 100% 100%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 1) 0%, rgba(2, 6, 23, 1) 100%);
+    var(--bg-color);
+  transition: background 0.5s ease;
 }
 
 .bg-circles::before {
@@ -98,7 +115,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 24px 10%;
-  background: rgba(2, 6, 23, 0.8);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
@@ -161,7 +178,7 @@ header h1 {
   line-height: 1;
   letter-spacing: -3px;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #fff 30%, var(--primary));
+  background: linear-gradient(135deg, var(--text-main) 30%, var(--primary));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -250,9 +267,9 @@ h2::before {
 
 .glass-card:hover {
   transform: translateY(-12px);
-  background: rgba(15, 23, 42, 0.8);
+  background: var(--glass-bg-hover);
   border-color: var(--primary);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--glow);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 20px var(--glow);
 }
 
 .glass-card::after {
@@ -374,7 +391,7 @@ h2::before {
 /* Footer */
 footer {
   padding: 120px 10% 60px;
-  background: #010409;
+  background: var(--footer-bg);
   border-top: 1px solid var(--glass-border);
   text-align: center;
 }
@@ -409,6 +426,45 @@ footer {
   transform: translateY(0) scale(1);
 }
 
+/* Theme Toggle */
+.theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  margin-left: 20px;
+}
+
+.theme-toggle:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--glow);
+  transform: rotate(15deg) scale(1.1);
+}
+
+[data-theme="light"] .theme-toggle .fa-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+  display: none;
+}
+
+body:not([data-theme="light"]) .theme-toggle .fa-sun {
+  display: none;
+}
+
+body[data-theme="light"] .theme-toggle .fa-moon {
+  display: none;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .main-nav {
@@ -416,6 +472,9 @@ footer {
   }
   .nav-links {
     display: none;
+  }
+  .theme-toggle {
+    margin-left: 0;
   }
   header h1 {
     font-size: 3.5rem;
