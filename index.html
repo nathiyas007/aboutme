@@ -1,33 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nathiya Sundharam</title>
+    <title>Nathiya Sundharam | Portfolio</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="index.css" />
   </head>
-  <body>
-    <div class="bg-circles"></div>
-
+  <body data-theme="light">
     <nav class="main-nav">
-      <a href="#" class="nav-logo">NATHIYA SUNDHARAM</a>
+      <a href="#" class="nav-logo">Nathiya</a>
       <div style="display: flex; align-items: center">
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
+          <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#journey">Journey</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#lifeskills">Life Skills</a></li>
-          <li><a href="#hobbies">Hobbies</a></li>
+          <li><a href="#qa-passion">QA</a></li>
+
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
@@ -37,232 +35,174 @@
       </div>
     </nav>
 
-    <header>
-      <div class="reveal">
-        <h1>Hi, I'm Nathiya</h1>
-        <p style="font-size: 1.3rem; opacity: 0.9; margin-top: 10px">
-          Full Stack Developer
-        </p>
-        <p style="color: var(--secondary); margin-top: 10px">
-          <i class="fas fa-map-marker-alt"></i> Sithalapakkam, Chennai
-        </p>
+    <header id="home" class="hero-section">
+      <div class="hero-container reveal">
+        <div class="hero-image">
+          <img
+            src="assets/nathiya.png"
+            alt="Nathiya Sundharam"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80'
+            "
+          />
+        </div>
+        <div class="hero-text">
+          <h1>Nathiya Sundharam</h1>
+          <h2 class="hero-subtitle">QA Enthusiast | Full Stack Learner</h2>
+          <p>
+            Hi, I am Nathiya, a beginner QA Enthusiast and Full Stack learner
+            from Chennai. I enjoy exploring websites, figuring out how things
+            work, and ensuring a seamless user experience. Welcome to my
+            learning journey!
+          </p>
+          <div class="btn-group">
+            <a href="#contact" class="btn btn-p">Contact</a>
+            <a href="/assets/Nathiya_resume1.pdf" class="btn btn-s">Resume</a>
+            <a href="#projects" class="btn btn-s">Projects</a>
+          </div>
+        </div>
       </div>
     </header>
 
-    <section id="about">
+    <section id="about" class="section-bg">
       <h2>About Me</h2>
       <div class="about-container reveal">
-        <div class="profile-card">
-          <img src="image/nathiya.png" alt="Nathiya" class="profile-img" />
+        <div class="about-images single-image">
+          <img
+            src="assets/WhatsApp Image 2026-03-16 at 11.05.09 PM.jpeg"
+            alt="Nathiya"
+            class="about-photo-main drop-shadow"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&q=80'
+            "
+          />
         </div>
-        <div class="about-text">
+        <div class="glass-card flex-1">
+          <div class="icon-heading">
+            <i class="fas fa-heart text-accent"></i>
+            <h3>My Motivation</h3>
+          </div>
           <p>
-            Hi, I am Nathiya from Chennai. I am a Full Stack Developer Trainee
-            who loves building websites. I completed my Diploma in Computer
-            Technology at Central Polytechnic College with 80% marks. I really
-            like Python, and I was the Top Scorer in that subject.
-          </p>
-          <p>
-            I completed my schooling at Government High School, Sithalapakkam.
-            Apart from coding, I am very interested in creative arts like Aari
-            Work and Pencil Drawing. I enjoy learning new things and always try
-            to do my best in both technology and art.
+            I come from a single-parent family, and my mother is my biggest
+            support and motivation. Her hard work and dedication drive me to
+            constantly improve and build a better future.
           </p>
 
-          <div
-            class="glass-card"
-            style="
-              padding: 25px;
-              border-left: 4px solid var(--primary);
-              margin-top: 20px;
-            "
-          >
-            <p
-              style="
-                color: var(--primary);
-                font-weight: 700;
-                margin-bottom: 15px;
-                letter-spacing: 1px;
-              "
-            >
-              <i class="fas fa-user-graduate"></i> EDUCATION SUMMARY
+          <div class="icon-heading mt-4">
+            <i class="fas fa-graduation-cap text-primary"></i>
+            <h3>Education Roots</h3>
+          </div>
+          <p>
+            I completed my Diploma in Computer Engineering. During my studies, I
+            was introduced to basic computer knowledge and coding, which sparked
+            my initial curiosity about the tech world.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <h2>My Career Journey</h2>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3>Diploma & A Pause</h3>
+            <p>
+              I completed my Diploma in Computer Engineering, focused on coding,
+              and scored high in Python, graduating with first-class
+              distinction. I couldn’t continue with a full engineering degree
+              due to personal reasons
             </p>
-            <ul style="list-style: none; font-size: 0.95rem">
-              <li
-                style="margin-bottom: 12px; display: flex; align-items: center"
-              >
-                <i
-                  class="fas fa-university"
-                  style="color: var(--secondary); margin-right: 15px"
-                ></i>
-                Central Polytechnic College (80%) - First class with Distinction
-              </li>
-              <li style="display: flex; align-items: center">
-                <i
-                  class="fas fa-school"
-                  style="color: var(--secondary); margin-right: 15px"
-                ></i>
-                Govt High School, Sithalapakkam (57%)
-              </li>
-            </ul>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3>Early Work Experience</h3>
+            <p>
+              I worked as a Data Entry Operator in a non-IT company for about
+              three months. During this period, I reflected on my passions and
+              realized my strong desire to build a career in the true IT field.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-card">
+            <h3>Joining the Academy</h3>
+            <p>
+              A friend suggested I check out a tech academy. I attended the
+              interview enthusiastically and and got in! At the academy, I have
+              not only learned technical skills but also significantly improved
+              my English communication, teamwork, and presentation skills.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-grid">
+    <section id="skills" class="section-bg">
+      <h2>Tech Stack & Skills</h2>
+      <div class="grid">
         <div class="glass-card reveal">
-          <h3 style="margin-bottom: 25px; color: var(--primary)">
-            Development
-          </h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>HTML & CSS</span><span>90%</span>
-            </div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 90%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Python (FastAPI)</span><span>67%</span>
-            </div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 67%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>PostgreSQL</span><span>75%</span>
-            </div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 75%"></div>
-            </div>
-          </div>
+          <h3><i class="fas fa-code text-primary"></i> Technologies</h3>
+          <ul class="skill-list">
+            <li><i class="fab fa-html5"></i> HTML</li>
+            <li><i class="fab fa-css3-alt"></i> CSS</li>
+            <li><i class="fab fa-js"></i> JavaScript</li>
+            <li><i class="fab fa-python"></i> Python</li>
+            <li><i class="fas fa-server"></i> FastAPI</li>
+            <li><i class="fas fa-database"></i> PostgreSQL</li>
+          </ul>
         </div>
-
         <div class="glass-card reveal">
-          <h3 style="margin-bottom: 25px; color: var(--primary)">
-            Design & Tools
-          </h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Figma UI Design</span><span>80%</span>
-            </div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 80%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span>GitHub</span><span>85%</span></div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 85%"></div>
-            </div>
-          </div>
+          <h3><i class="fas fa-vial text-accent"></i> Testing Skills</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-clipboard-check"></i> Manual Testing</li>
+            <li><i class="fas fa-bug"></i> Bug Identification</li>
+            <li><i class="fas fa-brain"></i> Logical Thinking in Testing</li>
+            <li>
+              <i class="fas fa-cogs"></i> Playwright (Learning Automation)
+            </li>
+          </ul>
         </div>
-
         <div class="glass-card reveal">
-          <h3 style="margin-bottom: 25px; color: var(--primary)">
-            Personal Skills
-          </h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Communication</span><span>60%</span>
-            </div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 60%"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info"><span>Team Work</span><span>55%</span></div>
-            <div class="bar-bg">
-              <div class="bar-fill" style="width: 55%"></div>
-            </div>
-          </div>
+          <h3><i class="fas fa-tools text-primary"></i> Tools & Design</h3>
+          <ul class="skill-list">
+            <li><i class="fas fa-code"></i> VS Code</li>
+            <li><i class="fab fa-figma"></i> Figma</li>
+            <li><i class="fab fa-github"></i> GitHub</li>
+            <li><i class="fas fa-file-excel"></i> Excel</li>
+            <li><i class="fas fa-paint-brush"></i> Canva</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Tech Projects & Internship</h2>
+      <h3 class="subsection-title reveal">Life Skills Projects</h3>
       <div class="grid">
-        <div class="glass-card reveal">
-          <div class="img-box">
-            <img src="image/staticwebstite.png" alt="Accessories Site" />
-          </div>
-          <h3>Accessories WebSite</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
-            Static website for fashion accessories using HTML and CSS.
-          </p>
-          <div class="btn-group">
-            <a
-              href="https://nathiyas007.github.io/Accessoriess/"
-              class="btn btn-p"
-              target="_blank"
-              >View Demo</a
-            >
-            <a
-              href="https://github.com/nathiyas007/Accessoriess"
-              class="btn btn-s"
-              target="_blank"
-              >GitHub</a
-            >
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="img-box">
+        <div class="glass-card reveal drop-shadow">
+          <div class="img-box" style="margin-bottom: 20px">
             <img
-              src="image/Screenshot 2026-01-11 125139.png"
-              alt="Marketplace"
+              src="assets/prd-building.jpeg"
+              alt="Product Building"
+              style="
+                width: 100%;
+                border-radius: var(--radius-md);
+                object-fit: cover;
+                aspect-ratio: 16/9;
+              "
             />
           </div>
-          <h3>Marketplace (Full Stack)</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
-            Second-hand buy/sell web app using FastAPI & PostgreSQL.
-          </p>
-          <div class="btn-group">
-            <a href="https://full-stack-marketplace-eight.vercel.app/" class="btn btn-p">View Demo</a>
-            <a href="https://github.com/nathiyas007/full_stack_marketplace_1" class="btn btn-s">GitHub</a>
-          </div>
-        </div>
-
-        <div class="glass-card reveal">
-          <div class="img-box">
-            <img
-              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80"
-              alt="BSNL"
-            />
-          </div>
-          <h3>BSNL – Internship</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
-            During my college studies, I completed a 1-month internship at BSNL,
-            Meenambakkam. During this internship, I learnt the basics of
-            computer networking, how the internet works, and how to use Cisco
-            Packet Tracer for network simulation. This internship was
-            stipend-based and helped me gain practical technical knowledge.
-          </p>
-          <a
-            href="image/BSNL.jpeg"
-            class="btn btn-p"
-            style="display: block; margin-top: 20px"
-            >View Certificate</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <section id="lifeskills">
-      <h2>Life Skills Project</h2>
-      <div class="grid">
-        <div class="glass-card reveal">
-          <div class="img-box">
-            <img src="./image/prd-building.jpeg" alt="Mini AC" />
-          </div>
-          <h3>Product Building Challenge : Seven Star Ac</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+          <h4 style="margin-bottom: 10px">
+            <i class="fas fa-lightbulb text-primary"></i> Product Building
+            Challenge : Seven Star Ac
+          </h4>
+          <p>
             In the FSSA Academy product building challenge, we made a mini AC.
             We used cardboard, aluminium foil, and a fan motor. While building
             this product, we faced many problems. But finally, we reached the
@@ -272,16 +212,23 @@
             building the product.
           </p>
         </div>
-
-        <div class="glass-card reveal">
-          <div class="img-box">
+        <div class="glass-card reveal drop-shadow">
+          <div class="img-box" style="margin-bottom: 20px">
             <img
               src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80"
               alt="Workplace Study"
+              style="
+                width: 100%;
+                border-radius: var(--radius-md);
+                object-fit: cover;
+                aspect-ratio: 16/9;
+              "
             />
           </div>
-          <h3>Workplace Study</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
+          <h4 style="margin-bottom: 10px">
+            <i class="fas fa-users text-accent"></i> Workplace Study
+          </h4>
+          <p>
             During a Project called workplace study, exploring LinkedIn and
             connecting with new people was a very different experience for me. I
             connected and interacted with Customer Support, HR, and Talent
@@ -291,30 +238,192 @@
             different backgrounds.
           </p>
         </div>
+        <div class="glass-card reveal drop-shadow">
+          <div class="img-box" style="margin-bottom: 20px">
+            <img
+              src="assets/book.jpg"
+              alt="Unique Talk"
+              style="
+                width: 100%;
+                border-radius: var(--radius-md);
+                object-fit: cover;
+                aspect-ratio: 16/9;
+              "
+            />
+          </div>
+          <h4 style="margin-bottom: 10px">
+            <i class="fas fa-microphone text-primary"></i> Unique Talk
+          </h4>
+          <p>
+            During my Unique Talk session, I presented my ideas about The World
+            Mysterious book in front of an audience. Initially, I had stage
+            fear, but this experience helped me control it. I spoke confidently
+            in English in front of everyone, which drastically improved my
+            public speaking skills and boosted my self-confidence.
+          </p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title reveal">Technical Projects</h3>
+      <div class="grid">
+        <div class="glass-card reveal">
+          <div class="img-box" style="margin-bottom: 20px">
+            <img
+              src="assets/Screenshot 2026-03-17 195416.png"
+              alt="Internship Certificate"
+              style="
+                width: 100%;
+                border-radius: var(--radius-md);
+                object-fit: cover;
+                aspect-ratio: 16/9;
+              "
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80'
+              "
+            />
+          </div>
+          <h3>Accessories WebSite</h3>
+          <p>Static website for fashion accessories using HTML and CSS.</p>
+          <a
+            href="https://nathiyas007.github.io/Accessoriess/"
+            class="btn btn-p"
+            style="margin-top: 15px; display: inline-block"
+            >View Demo</a
+          >
+        </div>
+        <div class="glass-card reveal">
+          <div class="img-box" style="margin-bottom: 20px">
+            <img
+              src="assets/marketplsce.png"
+              alt="Internship Certificate"
+              style="
+                width: 100%;
+                border-radius: var(--radius-md);
+                object-fit: cover;
+                aspect-ratio: 16/9;
+              "
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80'
+              "
+            />
+          </div>
+          <h3>Marketplace (Full Stack)</h3>
+          <p>Second-hand buy/sell web app using FastAPI &amp; PostgreSQL.</p>
+          <a
+            href="https://full-stack-marketplace-eight.vercel.app/"
+            class="btn btn-p"
+            style="margin-top: 15px; display: inline-block"
+            >View Demo</a
+          >
+        </div>
+        <div class="glass-card reveal">
+          <div class="img-box" style="margin-bottom: 20px">
+            <img
+              src="image/BSNL.jpeg"
+              alt="Internship Certificate"
+              style="
+                width: 100%;
+                border-radius: var(--radius-md);
+                object-fit: cover;
+                aspect-ratio: 16/9;
+              "
+              onerror="
+                this.src =
+                  'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80'
+              "
+            />
+          </div>
+          <h3>BSNL – Internship</h3>
+          <p>
+            During my college studies, I completed a 1-month internship at BSNL,
+            Meenambakkam. During this internship, I learnt the basics of
+            computer networking, how the internet works, and how to use Cisco
+            Packet Tracer for network simulation. This internship was
+            stipend-based and helped me gain practical technical knowledge.
+          </p>
+          <a
+            href="/assets/BSNL.jpeg"
+            target="_blank"
+            class="btn btn-p"
+            style="margin-top: 15px; display: inline-block"
+            >View Certificate</a
+          >
+        </div>
+
+        <div class="glass-card reveal" style="grid-column: 1 / -1">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+              flex-wrap: wrap;
+              gap: 20px;
+            "
+          >
+            <div style="flex: 1; min-width: 300px">
+              <h3 style="display: flex; align-items: center; gap: 12px">
+                <i class="fas fa-clipboard-check text-primary"></i> QA Manual
+                Testing
+              </h3>
+              <p style="margin: 15px 0">
+                Focused on ensuring software quality through meticulous manual
+                testing. This project showcases comprehensive test scenarios,
+                bug identification, and UI/UX validation across different
+                platforms.
+              </p>
+              <div class="qa-btns">
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1oLiTIImza8smjCPrknFj_eWYMDsuFL6a1VsDBnN-Hqg/edit?usp=sharing"
+                  class="qa-btn"
+                >
+                  <i class="fas fa-users"></i> Peer Website
+                </a>
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1sZsMy1-PV5s0ji4frD20aiQAfOA3o81PzPm5mwpz3x4/edit?usp=sharing"
+                  class="qa-btn"
+                >
+                  <i class="fas fa-globe"></i> Public Website
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="hobbies">
-      <h2>Hobbies & Interests</h2>
+    <section id="qa-passion" class="section-bg">
+      <h2>My Testing Journey Spotlight</h2>
       <div class="grid">
         <div class="glass-card reveal">
-          <div class="img-box">
-            <img src="image/drawing.jpg" alt="Pencil Drawing" />
-          </div>
-          <h3>Pencil Drawing</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
-            Drawing helps me feel calm and relaxed.
+          <h3><i class="fas fa-cogs text-accent"></i> How It Started</h3>
+          <p>
+            I started learning Manual Testing practically by testing my academy
+            mate's full-stack project. Since then, I’ve been constantly
+            verifying forms, layouts, and data. To level up my workflow, I've
+            started learning automation tools like Playwright to improve my
+            overall testing knowledge.
           </p>
         </div>
-
         <div class="glass-card reveal">
-          <div class="img-box">
-            <img src="image/aari-work.webp" alt="Aari Work" />
-          </div>
-          <h3>Aari Work</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 10px">
-            I enjoy traditional Aari embroidery work, which helps me improve my
-            patience, creativity, and attention to detail.
+          <h3>
+            <i class="fas fa-chart-line text-primary"></i> Current Learning
+          </h3>
+          <p>
+            I am currently focused on drastically improving my testing
+            knowledge. I am actively practicing manual testing techniques to
+            identify corner-case bugs and continuously exploring modern
+            automation testing concepts.
+          </p>
+        </div>
+        <div class="glass-card reveal">
+          <h3><i class="fas fa-bullseye text-accent"></i> Future Goals</h3>
+          <p>
+            My ultimate goal is to become a highly skilled QA Engineer who
+            ensures the delivery of high-quality, bug-free software and
+            continuously learns modern testing tools and tech to stay ahead of
+            the curve.
           </p>
         </div>
       </div>
@@ -322,95 +431,71 @@
 
     <footer id="contact">
       <div class="reveal">
-        <h2>Contact</h2>
-        <div style="margin-bottom: 25px; line-height: 2">
+        <h2>Let's Connect</h2>
+        <div class="contact-info">
+          <p><i class="fas fa-phone text-primary"></i> +91 7010042985</p>
           <p>
-            <i
-              class="fas fa-phone"
-              style="color: var(--primary); margin-right: 10px"
-            ></i>
-            +91 7010042985
+            <i class="fas fa-envelope text-primary"></i> nathiyas972@gmail.com
           </p>
           <p>
-            <i
-              class="fas fa-envelope"
-              style="color: var(--primary); margin-right: 10px"
-            ></i>
-            nathiyas972@gmail.com
-          </p>
-          <p>
-            <i
-              class="fas fa-map-marker-alt"
-              style="color: var(--primary); margin-right: 10px"
-            ></i>
-            Sithalapakkam, Chennai - 600126
+            <i class="fas fa-map-marker-alt text-primary"></i> Sithalapakkam,
+            Chennai - 600126
           </p>
         </div>
         <div class="social-links">
-          <a href="https://github.com/nathiyas007" target="_blank"
+          <a
+            href="https://github.com/nathiyas007"
+            target="_blank"
+            aria-label="GitHub"
             ><i class="fab fa-github"></i
           ></a>
           <a
             href="https://www.linkedin.com/in/nathiya-s-0b89a6389"
             target="_blank"
+            aria-label="LinkedIn"
             ><i class="fab fa-linkedin"></i
           ></a>
-          <a href="mailto:nathiyas972@gmail.com"
+          <a href="mailto:nathiyas972@gmail.com" aria-label="Email"
             ><i class="fas fa-envelope"></i
           ></a>
         </div>
-        <p
-          style="
-            opacity: 0.4;
-            font-size: 0.75rem;
-            margin-top: 40px;
-            letter-spacing: 1px;
-          "
-        >
-          NATHIYA SUNDHARAM&copy; 2026
+        <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 40px">
+          &copy; 2026 Nathiya Sundharam. Crafted with focus.
         </p>
       </div>
     </footer>
+
     <script>
-      // Intersection Observer for reveal animations
-      const observerOptions = {
-        threshold: 0.1,
-      };
+      // Scroll Reveal Animation
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      }, observerOptions);
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
 
-      document.querySelectorAll(".reveal").forEach((el) => {
-        observer.observe(el);
-      });
-
-      // Theme Toggle Logic
-      const themeToggle = document.getElementById('themeToggle');
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("themeToggle");
       const body = document.body;
 
-      // Check for saved theme preference
-      const savedTheme = localStorage.getItem('theme');
+      const savedTheme = localStorage.getItem("theme");
       if (savedTheme) {
-        body.setAttribute('data-theme', savedTheme);
+        body.setAttribute("data-theme", savedTheme);
       }
 
-      themeToggle.addEventListener('click', () => {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Add a temporary animation effect
-        themeToggle.style.transform = 'scale(1.2) rotate(360deg)';
-        setTimeout(() => {
-          themeToggle.style.transform = '';
-        }, 500);
+      themeToggle.addEventListener("click", () => {
+        const currentTheme = body.getAttribute("data-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        body.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
       });
     </script>
   </body>
