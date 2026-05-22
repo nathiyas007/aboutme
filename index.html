@@ -624,33 +624,6 @@
             </div>
           </div>
         </div>
-        
-        <!-- Contact Form Card -->
-        <div class="contact-form glass-card">
-          <h3 style="margin-bottom: 25px;"><i class="fas fa-paper-plane text-primary"></i> Send a Message</h3>
-          <form id="portfolioContactForm">
-            <div class="form-group">
-              <input type="text" id="contactName" class="form-input" placeholder=" " required />
-              <label for="contactName" class="form-label">Your Name</label>
-            </div>
-            
-            <div class="form-group">
-              <input type="email" id="contactEmail" class="form-input" placeholder=" " required />
-              <label for="contactEmail" class="form-label">Your Email</label>
-            </div>
-            
-            <div class="form-group">
-              <textarea id="contactMessage" class="form-input" placeholder=" " required></textarea>
-              <label for="contactMessage" class="form-label">Your Message</label>
-            </div>
-            
-            <button type="submit" class="btn btn-p">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-            
-            <div id="formStatus" class="form-status"></div>
-          </form>
-        </div>
       </div>
     </section>
 
@@ -792,47 +765,6 @@
       const body = document.body;
       body.setAttribute("data-theme", "dark");
 
-      // 6. Contact Form validation & simulated submission
-      const contactForm = document.getElementById("portfolioContactForm");
-      const formStatus = document.getElementById("formStatus");
-
-      if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-          e.preventDefault();
-          
-          const nameInput = document.getElementById("contactName");
-          const emailInput = document.getElementById("contactEmail");
-          const messageInput = document.getElementById("contactMessage");
-          const submitBtn = contactForm.querySelector("button[type='submit']");
-          
-          if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-            formStatus.className = "form-status error";
-            formStatus.textContent = "Please fill in all layout fields.";
-            formStatus.style.display = "block";
-            return;
-          }
-          
-          // Simulation
-          submitBtn.disabled = true;
-          const originalHTML = submitBtn.innerHTML;
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Transmitting...';
-          formStatus.style.display = "none";
-          
-          setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalHTML;
-            
-            formStatus.className = "form-status success";
-            formStatus.textContent = "Thank you, " + nameInput.value.trim() + "! Your message has been simulated successfully. I will reach out soon.";
-            formStatus.style.display = "block";
-            contactForm.reset();
-            
-            setTimeout(() => {
-              formStatus.style.display = "none";
-            }, 6000);
-          }, 1500);
-        });
-      }
 
       // 7. Interactive HTML5 Canvas Particles
       const canvas = document.getElementById("particle-canvas");

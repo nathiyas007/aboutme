@@ -1180,16 +1180,18 @@ section {
 
 /* Contact Section Layout */
 .contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 50px;
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .contact-cards {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
+  max-width: 600px;
 }
 
 .contact-card {
@@ -1234,90 +1236,6 @@ section {
   color: var(--text-dim);
 }
 
-/* Contact Form styling */
-.contact-form {
-  padding: 40px;
-}
-
-.form-group {
-  position: relative;
-  margin-bottom: 25px;
-}
-
-.form-input {
-  width: 100%;
-  padding: 14px 20px;
-  background: rgba(var(--primary-rgb), 0.03);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-sm);
-  outline: none;
-  font-size: 1rem;
-  color: var(--text-main);
-  transition: var(--transition);
-}
-
-.form-input:focus {
-  border-color: var(--primary);
-  background: var(--surface);
-  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1);
-}
-
-textarea.form-input {
-  resize: vertical;
-  min-height: 130px;
-}
-
-.form-label {
-  position: absolute;
-  left: 20px;
-  top: 14px;
-  font-size: 1rem;
-  color: var(--text-dim);
-  pointer-events: none;
-  transition: var(--transition);
-}
-
-/* Floating labels when focused or filled */
-.form-input:focus ~ .form-label,
-.form-input:not(:placeholder-shown) ~ .form-label {
-  top: -10px;
-  left: 15px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--surface);
-  padding: 2px 8px;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-}
-
-.contact-form button[type="submit"] {
-  width: 100%;
-}
-
-.form-status {
-  margin-top: 15px;
-  padding: 12px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 600;
-  display: none;
-}
-
-.form-status.success {
-  display: block;
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
-.form-status.error {
-  display: block;
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.2);
-}
 
 /* Footer Styling */
 footer {
@@ -1476,11 +1394,7 @@ footer p {
     margin-top: 20px;
   }
   
-  .contact-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
+
   .timeline::after {
     left: 20px;
   }
@@ -1550,9 +1464,7 @@ footer p {
   .btn {
     width: 100%;
   }
-  .contact-form {
-    padding: 25px 20px;
-  }
+
 }
 
 /* Custom Attractive Cursor */
